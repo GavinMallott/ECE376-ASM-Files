@@ -18,28 +18,28 @@ Loop:
 	call Toggle
 
 	btfsc PORTB,0
-	call Wait_E5
+	call Wait_B4
 
 	btfsc PORTB,1
-	call Wait_E4
+	call Wait_C5
 
 	btfsc PORTB,2
-	call Wait_D5s
+	call Wait_D5
 
 	btfsc PORTB,3
-	call Wait_D4s
+	call Wait_E5
 
 	btfsc PORTB,4
-	call Wait_C5s
+	call Wait_F5
 
 	btfsc PORTB,5
-	call Wait_C4s
+	call Wait_G5
 
 	btfsc PORTB,6
-	call Wait_A4
+	call Wait_A5
 
 	btfsc PORTB,7
-	call Wait_G4s
+	call Wait_B5
 
 	goto Loop
 
@@ -59,12 +59,12 @@ Toggle:
 	btg PORTC, 0
 	return
 
-Wait_E5:				; 659Hz --- 7587 clocks
-	movlw 4
+Wait_B4:				; 493Hz --- 10,141 clocks --- Actually ~10,118 clocks
+	movlw 10
 	movwf CNT1
 
 Loop1b:
-	movlw 190
+	movlw 101
 	movwf CNT0
 Loop0b:
 	nop
@@ -82,12 +82,12 @@ Loop0b:
 
 	return
 
-Wait_E4:				; 329Hz --- 15197 clocks
-	movlw 7
+Wait_C5:				; 523Hz --- 9,560 clocks --- Actually ~9560 clocks
+	movlw 4
 	movwf CNT1
 
 Loop1c:
-	movlw 217
+	movlw 239
 	movwf CNT0
 Loop0c:
 	nop
@@ -105,12 +105,12 @@ Loop0c:
 
 	return
 
-Wait_D5s:				; 622Hz --- 8038 clocks
+Wait_D5:				; 587Hz --- 8517 clocks --- Actually ~8520 clocks
 	movlw 4
 	movwf CNT1
 
 Loop1d:
-	movlw 201
+	movlw 213
 	movwf CNT0
 Loop0d:
 	nop
@@ -128,12 +128,12 @@ Loop0d:
 
 	return
 
-Wait_D4s:				; 311Hz --- 16077 clocks
-	movlw 7
+Wait_E5:				; 659Hz --- 7587 clocks --- Actually ~7600 clocks
+	movlw 4
 	movwf CNT1
 
 Loop1e:
-	movlw 230
+	movlw 190
 	movwf CNT0
 Loop0e:
 	nop
@@ -151,8 +151,8 @@ Loop0e:
 
 	return
 
-Wait_C5s:				; 554Hz --- 9025 clocks
-	movlw 5
+Wait_F5:				; 693Hz --- 7215 clocks --- Actually ~7200 clocks
+	movlw 4
 	movwf CNT1
 
 Loop1f:
@@ -174,12 +174,12 @@ Loop0f:
 
 	return
 
-Wait_C4s:				; 277Hz --- 18050 clocks
-	movlw 8
+Wait_G5:				; 784Hz --- 6377 clocks --- Actually ~6360 clocks
+	movlw 4
 	movwf CNT1
 
 Loop1g:
-	movlw 226
+	movlw 159
 	movwf CNT0
 Loop0g:
 	nop
@@ -197,12 +197,12 @@ Loop0g:
 
 	return
 
-Wait_A4:				; 440Hz --- 11363 clocks
-	movlw 5
+Wait_A5:				; 880Hz --- 5681 clocks --- Actually ~5680 clocks
+	movlw 4
 	movwf CNT1
 
 Loop1a:
-	movlw 227
+	movlw 142
 	movwf CNT0
 Loop0a:
 	nop
@@ -219,12 +219,12 @@ Loop0a:
 	goto Loop1a
 
 	return
-Wait_G4s:				; 415Hz --- 12048 clocks
+Wait_B5:				; 987Hz --- 5065 clocks --- Actually ~5050 clocks
 	movlw 5
 	movwf CNT1
 
 Loop1b2:
-	movlw 241
+	movlw 101
 	movwf CNT0
 Loop0b2:
 	nop
